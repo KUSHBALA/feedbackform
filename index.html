@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>PVTG Tribal Survey | A&N Islands Data Capture with Voice Recording</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+  <title>PVTG Tribal Survey | A&N Islands | Voice Recording</title>
   <!-- Google Fonts + Font Awesome 6 -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -12,71 +12,76 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
     }
 
     body {
       font-family: 'Inter', sans-serif;
       background: linear-gradient(135deg, #eaf5ef 0%, #d4e2da 100%);
       color: #1a2f28;
-      padding: 2rem 1rem;
+      padding: 1rem;
       line-height: 1.5;
     }
 
     .survey-wrapper {
-      max-width: 1300px;
+      max-width: 1200px;
       margin: 0 auto;
       background: white;
-      border-radius: 2rem;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
+      border-radius: 1.5rem;
+      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.25);
       overflow: hidden;
-      transition: all 0.2s;
     }
 
-    /* Header Section with Researcher Details */
+    /* Header Section - Mobile optimized */
     .researcher-header {
       background: linear-gradient(105deg, #0a3d31 0%, #135f4a 100%);
-      padding: 1.8rem 2rem 1.5rem;
+      padding: 1.5rem;
       color: white;
     }
 
     .researcher-name {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       font-weight: 700;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
+      word-break: break-word;
     }
 
     .researcher-name i {
       background: #ffdf8c;
       color: #0a3d31;
-      padding: 10px;
+      padding: 8px;
       border-radius: 50%;
-      font-size: 1.3rem;
+      font-size: 1.1rem;
+      flex-shrink: 0;
     }
 
     .researcher-details {
       display: flex;
       flex-wrap: wrap;
-      gap: 1.5rem;
-      margin: 0.8rem 0 0.5rem;
-      font-size: 0.9rem;
+      gap: 0.8rem;
+      margin: 0.8rem 0 0.2rem;
+      font-size: 0.8rem;
       opacity: 0.92;
     }
 
-    .researcher-details span i {
-      margin-right: 6px;
+    .researcher-details span {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      word-break: break-word;
     }
 
-    /* Why Survey Box */
+    /* Why Survey Box - Responsive */
     .why-survey {
       background: #fef7e0;
-      border-left: 5px solid #e6b422;
-      padding: 1rem 1.5rem;
-      margin: 1rem 2rem 0 2rem;
+      border-left: 4px solid #e6b422;
+      padding: 1rem;
+      margin: 1rem 1rem 0 1rem;
       border-radius: 1rem;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: #5a4a1a;
     }
 
@@ -86,68 +91,93 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 0.4rem 1rem;
+      padding: 0.35rem 0.8rem;
       border-radius: 40px;
-      font-size: 0.8rem;
-      margin-top: 1rem;
+      font-size: 0.75rem;
+      margin-top: 0.8rem;
+      flex-wrap: wrap;
     }
 
-    /* Form Area */
+    /* Form Container */
     .form-container {
-      padding: 2rem 2rem 2rem;
+      padding: 1.25rem;
     }
 
+    /* Responsive grid: switches to 1 column on mobile */
     .grid-2 {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
+      grid-template-columns: 1fr;
+      gap: 1.2rem;
+    }
+
+    /* For tablets and larger */
+    @media (min-width: 640px) {
+      .grid-2 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+      .form-container {
+        padding: 2rem;
+      }
+      .researcher-name {
+        font-size: 1.5rem;
+      }
     }
 
     .full-width {
-      grid-column: span 2;
+      grid-column: span 1;
+    }
+    @media (min-width: 640px) {
+      .full-width {
+        grid-column: span 2;
+      }
     }
 
     .form-group {
-      margin-bottom: 0.2rem;
+      margin-bottom: 0;
       display: flex;
       flex-direction: column;
     }
 
     label {
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       margin-bottom: 0.5rem;
       color: #1a5a48;
       display: flex;
       align-items: center;
       gap: 8px;
+      flex-wrap: wrap;
     }
 
     label i {
       color: #2c8f6b;
       width: 1.3rem;
+      font-size: 1rem;
     }
 
     input, select, textarea {
-      padding: 0.85rem 1rem;
+      padding: 0.8rem;
       border: 1.5px solid #d6e6df;
       border-radius: 1rem;
       font-family: 'Inter', sans-serif;
       font-size: 0.95rem;
       transition: all 0.2s;
       background: #fefefb;
+      width: 100%;
+      -webkit-appearance: none;
+      appearance: none;
     }
 
-    input:focus, select:focus, textarea:focus {
-      outline: none;
-      border-color: #2c8f6b;
-      box-shadow: 0 0 0 3px rgba(44, 143, 107, 0.15);
+    /* Improve touch targets */
+    input, select, textarea, button, .record-btn, .delete-recording {
+      touch-action: manipulation;
     }
 
     .checkbox-group, .radio-group {
       display: flex;
       flex-wrap: wrap;
-      gap: 1.2rem;
+      gap: 0.8rem;
       align-items: center;
       margin-top: 0.3rem;
     }
@@ -156,30 +186,25 @@
       font-weight: 500;
       gap: 6px;
       cursor: pointer;
-    }
-
-    hr {
-      margin: 1rem 0 1.5rem;
-      border: none;
-      height: 2px;
-      background: linear-gradient(90deg, #cde0d8, #a6c2b6, #cde0d8);
+      font-size: 0.85rem;
+      padding: 0.25rem 0;
     }
 
     .section-title {
-      font-size: 1.25rem;
+      font-size: 1.15rem;
       font-weight: 700;
       color: #0e4a3a;
       margin: 1.2rem 0 0.8rem 0;
-      border-left: 5px solid #2c8f6b;
-      padding-left: 1rem;
+      border-left: 4px solid #2c8f6b;
+      padding-left: 0.8rem;
     }
 
-    /* Voice Recording Styles */
+    /* Voice Recording Styles - Mobile First */
     .voice-recording-container {
       background: linear-gradient(135deg, #f8fbf9 0%, #eef4f1 100%);
-      border-radius: 1.2rem;
-      padding: 1rem 1.2rem;
-      margin-top: 0.8rem;
+      border-radius: 1rem;
+      padding: 1rem;
+      margin-top: 0.5rem;
       border: 1px solid #cde0d8;
     }
 
@@ -188,7 +213,7 @@
       flex-wrap: wrap;
       gap: 12px;
       align-items: center;
-      margin-bottom: 12px;
+      justify-content: center;
     }
 
     .record-btn {
@@ -196,46 +221,30 @@
       color: white;
       border: none;
       padding: 0.7rem 1.2rem;
-      border-radius: 2rem;
+      border-radius: 3rem;
       font-weight: 600;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      transition: all 0.2s;
-      width: auto;
-      margin: 0;
-      box-shadow: none;
-    }
-
-    .record-btn.recording {
-      background: #991b1b;
-      animation: pulse 1.2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.7; }
+      font-size: 0.9rem;
+      flex: 1;
+      justify-content: center;
+      min-width: 120px;
     }
 
     .stop-btn {
       background: #6b7280;
     }
 
-    .play-btn {
-      background: #2c8f6b;
-    }
-
-    .record-btn:hover {
-      transform: translateY(-1px);
-    }
-
     .recording-status {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: #4b5563;
       display: flex;
       align-items: center;
       gap: 8px;
+      width: 100%;
+      justify-content: center;
     }
 
     .wave-animation {
@@ -252,84 +261,114 @@
       animation: wave 0.8s infinite ease-in-out;
     }
 
-    .wave-animation span:nth-child(2) { animation-delay: 0.1s; }
-    .wave-animation span:nth-child(3) { animation-delay: 0.2s; }
-    .wave-animation span:nth-child(4) { animation-delay: 0.3s; }
-
     @keyframes wave {
       0%, 100% { height: 8px; }
       50% { height: 18px; }
-    }
-
-    .audio-player {
-      margin-top: 12px;
-      display: none;
-    }
-
-    .audio-player audio {
-      width: 100%;
-      border-radius: 2rem;
     }
 
     .recordings-list {
       margin-top: 12px;
       padding-top: 10px;
       border-top: 1px dashed #cde0d8;
+      max-height: 300px;
+      overflow-y: auto;
     }
 
+    /* Mobile optimized recording items */
     .recording-item {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
+      flex-direction: column;
       background: white;
-      padding: 0.6rem 1rem;
-      border-radius: 2rem;
-      margin-bottom: 8px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      padding: 0.8rem;
+      border-radius: 1rem;
+      margin-bottom: 10px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      gap: 10px;
     }
 
     .recording-item .word-label {
       font-weight: 600;
       color: #1a5a48;
-      min-width: 80px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+    }
+
+    .recording-item .word-label input {
+      flex: 1;
+      padding: 0.6rem;
+      font-size: 0.85rem;
+      margin-left: 0;
+      width: auto;
     }
 
     .recording-item audio {
-      height: 36px;
-      flex: 1;
-      margin: 0 10px;
+      width: 100%;
+      height: 42px;
+      border-radius: 2rem;
     }
 
     .delete-recording {
-      background: none;
+      background: #fee2e2;
       border: none;
       color: #dc2626;
       cursor: pointer;
       font-size: 1rem;
-      padding: 4px 8px;
-      width: auto;
-      margin: 0;
-      box-shadow: none;
+      padding: 0.6rem;
+      border-radius: 2rem;
+      width: 100%;
+      text-align: center;
+      font-weight: 500;
+      margin-top: 4px;
     }
 
-    .delete-recording:hover {
-      color: #991b1b;
-      transform: none;
+    @media (min-width: 480px) {
+      .recording-item {
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .recording-item .word-label {
+        width: auto;
+        min-width: 130px;
+      }
+      .recording-item audio {
+        width: auto;
+        flex: 1;
+        min-width: 160px;
+      }
+      .delete-recording {
+        width: auto;
+        padding: 0.5rem 1rem;
+        margin-top: 0;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .recording-item {
+        flex-wrap: nowrap;
+      }
+      .recording-item audio {
+        margin: 0 10px;
+      }
     }
 
     .sample-words-hint {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       color: #6b8a7a;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      text-align: center;
     }
 
-    button {
+    /* Submit Button */
+    button, .submit-btn {
       background: #0f5c46;
       border: none;
       color: white;
       font-weight: 700;
-      font-size: 1.1rem;
-      padding: 1rem 2rem;
+      font-size: 1rem;
+      padding: 1rem;
       border-radius: 3rem;
       width: 100%;
       cursor: pointer;
@@ -337,77 +376,84 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       margin-top: 1.5rem;
-      box-shadow: 0 8px 20px rgba(11, 66, 53, 0.3);
+      box-shadow: 0 4px 12px rgba(11, 66, 53, 0.3);
+      touch-action: manipulation;
     }
 
-    button:hover {
-      background: #094434;
-      transform: translateY(-2px);
+    button:active {
+      transform: scale(0.98);
     }
 
-    /* Modal Acknowledgement */
+    /* Modal Responsive */
     .modal-overlay {
       display: none;
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.75);
+      background: rgba(0, 0, 0, 0.8);
       backdrop-filter: blur(6px);
       align-items: center;
       justify-content: center;
       z-index: 2000;
+      padding: 1rem;
     }
 
     .certificate-card {
       background: white;
-      max-width: 560px;
-      width: 90%;
-      border-radius: 2rem;
-      padding: 2rem 1.8rem;
+      max-width: 520px;
+      width: 100%;
+      border-radius: 1.5rem;
+      padding: 1.5rem;
       text-align: center;
       animation: fadeSlide 0.3s ease;
-      box-shadow: 0 30px 40px rgba(0,0,0,0.3);
+      max-height: 90vh;
+      overflow-y: auto;
     }
 
     @keyframes fadeSlide {
-      from { opacity: 0; transform: translateY(25px);}
+      from { opacity: 0; transform: translateY(20px);}
       to { opacity: 1; transform: translateY(0);}
     }
 
     .certificate-card i.fa-scroll {
-      font-size: 3rem;
+      font-size: 2.5rem;
       color: #2c8f6b;
       background: #eef3f0;
-      padding: 0.8rem;
-      border-radius: 60px;
+      padding: 0.6rem;
+      border-radius: 50px;
     }
 
     .message-quote {
       background: #f9fefb;
-      padding: 1.2rem;
-      border-radius: 1.2rem;
+      padding: 1rem;
+      border-radius: 1rem;
       margin: 1rem 0;
       font-style: italic;
-      border-left: 4px solid #2c8f6b;
+      border-left: 3px solid #2c8f6b;
       color: #1e4f3e;
       text-align: left;
+      font-size: 0.85rem;
     }
 
     .btn-group {
       display: flex;
       gap: 12px;
       justify-content: center;
-      margin-top: 0.8rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
     }
 
-    .btn-secondary, .btn-primary-cert {
+    .btn-primary-cert, .btn-secondary {
       padding: 0.7rem 1.2rem;
       border-radius: 2rem;
       font-weight: 600;
       border: none;
       cursor: pointer;
+      font-size: 0.9rem;
+      flex: 1;
+      min-width: 100px;
     }
 
     .btn-primary-cert {
@@ -423,36 +469,13 @@
     footer {
       background: #eef3f0;
       text-align: center;
-      padding: 1.2rem;
-      font-size: 0.75rem;
+      padding: 1rem;
+      font-size: 0.7rem;
       color: #386a5a;
       border-top: 1px solid #d4e4dd;
     }
 
-    @media (max-width: 760px) {
-      .grid-2 {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
-      .full-width {
-        grid-column: span 1;
-      }
-      .form-container {
-        padding: 1.5rem;
-      }
-      .researcher-name {
-        font-size: 1.2rem;
-      }
-      .recording-item {
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-      .recording-item audio {
-        width: 100%;
-        order: 2;
-      }
-    }
-
+    /* Error messages */
     .error-msg {
       color: #c73e2d;
       font-size: 0.7rem;
@@ -465,11 +488,49 @@
       color: #c75c48;
       margin-left: 4px;
     }
+
+    /* Better spacing for touch */
+    input, textarea, select, .record-btn {
+      font-size: 16px; /* Prevents zoom on iOS */
+    }
+
+    /* Tablet enhancements */
+    @media (min-width: 768px) {
+      body {
+        padding: 1.5rem;
+      }
+      .form-container {
+        padding: 2rem 2.5rem;
+      }
+      .section-title {
+        font-size: 1.3rem;
+      }
+      .researcher-details {
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Extra small devices */
+    @media (max-width: 380px) {
+      .researcher-name {
+        font-size: 1rem;
+      }
+      .checkbox-group {
+        gap: 0.5rem;
+      }
+      .checkbox-group label {
+        font-size: 0.75rem;
+      }
+      .record-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+      }
+    }
   </style>
 </head>
 <body>
 <div class="survey-wrapper">
-  <!-- Header: researcher info exactly as described -->
+  <!-- Header -->
   <div class="researcher-header">
     <div class="researcher-name">
       <i class="fas fa-user-graduate"></i> 
@@ -478,12 +539,12 @@
     <div class="researcher-details">
       <span><i class="fas fa-envelope"></i> bag.rajib@gmail.com</span>
       <span><i class="fas fa-phone-alt"></i> 9474564411</span>
-      <span><i class="fas fa-university"></i> PhD Scholar, JIS University, Kolkata, WB</span>
+      <span><i class="fas fa-university"></i> PhD Scholar, JIS University, Kolkata</span>
     </div>
   </div>
 
-  <!-- Why this survey + Privacy block (exactly as described) -->
-  <div style="padding: 0 2rem 0 2rem;">
+  <!-- Why this survey -->
+  <div style="padding: 0 1rem;">
     <div class="why-survey">
       <strong><i class="fas fa-chart-line"></i> Why this survey:</strong> There are many PVTG (Particularly Vulnerable Tribal Group, like Great Andamanese, Onge, Jarawa, Sentinelese, Shompen, Nicobarese) resides in A&N Islands whose number are reduced due to different natural hurdles and climate change. Information regarding those will be helpful to work on their problems as GoI also encouraging to work on their issues.
       <div class="privacy-badge" style="background:#f0e4bc; color:#4a3a10; margin-top: 12px;">
@@ -495,43 +556,40 @@
   <!-- Survey Form -->
   <div class="form-container">
     <form id="tribalSurveyForm" novalidate>
-      <!-- 1. Name, locality, email, mobile -->
       <div class="grid-2">
         <div class="form-group">
           <label><i class="fas fa-user"></i> Your Name <span class="required-star"></span></label>
-          <input type="text" id="fullname" placeholder="Enter full name">
+          <input type="text" id="fullname" placeholder="Enter full name" autocomplete="name">
           <div class="error-msg" id="nameError">Name is required</div>
         </div>
         <div class="form-group">
-          <label><i class="fas fa-map-marker-alt"></i> Your locality / area you belongs</label>
-          <input type="text" id="locality" placeholder="e.g., Port Blair, Diglipur, Campbell Bay">
+          <label><i class="fas fa-map-marker-alt"></i> Your locality / area</label>
+          <input type="text" id="locality" placeholder="e.g., Port Blair, Diglipur">
         </div>
       </div>
 
       <div class="grid-2">
         <div class="form-group">
           <label><i class="fas fa-envelope"></i> Your e-mail Id</label>
-          <input type="email" id="email" placeholder="your@email.com">
+          <input type="email" id="email" placeholder="your@email.com" autocomplete="email">
           <div class="error-msg" id="emailError">Valid email required if provided</div>
         </div>
         <div class="form-group">
           <label><i class="fas fa-mobile-alt"></i> Mobile No.</label>
-          <input type="tel" id="mobile" placeholder="+91 9876543210">
+          <input type="tel" id="mobile" placeholder="+91 9876543210" autocomplete="tel">
         </div>
       </div>
 
-      <!-- Tribal belonging -->
       <div class="form-group">
-        <label><i class="fas fa-users"></i> Are belonging to any tribal community?</label>
+        <label><i class="fas fa-users"></i> Belonging to any tribal community?</label>
         <div class="radio-group">
           <label><input type="radio" name="tribalBelong" value="Yes"> Yes</label>
           <label><input type="radio" name="tribalBelong" value="No" checked> No</label>
         </div>
       </div>
 
-      <!-- Knowledge of tribal communities -->
       <div class="form-group">
-        <label><i class="fas fa-brain"></i> You have knowledge of which Tribal community?</label>
+        <label><i class="fas fa-brain"></i> Knowledge of which Tribal community?</label>
         <div class="checkbox-group" id="tribalKnowledgeGroup">
           <label><input type="checkbox" value="Great Andamanese"> Great Andamanese</label>
           <label><input type="checkbox" value="Onge"> Onge</label>
@@ -542,104 +600,87 @@
         </div>
       </div>
 
-      <!-- Area -->
       <div class="form-group">
-        <label><i class="fas fa-draw-polygon"></i> You are taking about which area</label>
-        <input type="text" id="areaRef" placeholder="e.g., Little Andaman, Strait Island, North Sentinel">
+        <label><i class="fas fa-draw-polygon"></i> Area you are referring to</label>
+        <input type="text" id="areaRef" placeholder="e.g., Little Andaman, Strait Island">
       </div>
 
       <div class="section-title"><i class="fas fa-clipboard-list"></i> Community Insights</div>
 
-      <!-- Problems faced -->
       <div class="form-group">
-        <label><i class="fas fa-exclamation-triangle"></i> List the problems what the above mentioned community faced</label>
-        <textarea id="problems" rows="3" placeholder="Climate displacement, health issues, food scarcity, habitat loss..."></textarea>
+        <label><i class="fas fa-exclamation-triangle"></i> Problems faced by community</label>
+        <textarea id="problems" rows="2" placeholder="Climate displacement, health issues, food scarcity..."></textarea>
       </div>
 
-      <!-- Fooding technique & problem -->
       <div class="form-group">
-        <label><i class="fas fa-utensils"></i> Their fooding technique used and problem</label>
-        <textarea id="foodTech" rows="2" placeholder="Hunting, fishing, gathering; issues like forest degradation, dwindling resources"></textarea>
+        <label><i class="fas fa-utensils"></i> Fooding technique & problems</label>
+        <textarea id="foodTech" rows="2" placeholder="Hunting, fishing, gathering; issues like forest degradation"></textarea>
       </div>
 
-      <!-- Education & problems -->
       <div class="form-group">
-        <label><i class="fas fa-graduation-cap"></i> Their Education and problems</label>
+        <label><i class="fas fa-graduation-cap"></i> Education & problems</label>
         <textarea id="education" rows="2" placeholder="Literacy levels, school access, language barriers"></textarea>
       </div>
 
-      <!-- Disease & solution -->
       <div class="form-group">
-        <label><i class="fas fa-heartbeat"></i> Their disease and solution</label>
-        <textarea id="disease" rows="2" placeholder="Common ailments, traditional remedies, modern healthcare gaps"></textarea>
+        <label><i class="fas fa-heartbeat"></i> Disease & solution</label>
+        <textarea id="disease" rows="2" placeholder="Common ailments, traditional remedies, healthcare gaps"></textarea>
       </div>
 
-      <!-- Communication / Language -->
       <div class="form-group">
-        <label><i class="fas fa-comments"></i> Their communication / Language</label>
-        <textarea id="language" rows="2" placeholder="Dialects, interaction patterns, unique linguistic features"></textarea>
+        <label><i class="fas fa-comments"></i> Communication / Language</label>
+        <textarea id="language" rows="2" placeholder="Dialects, interaction patterns"></textarea>
       </div>
 
-      <!-- Skill used -->
       <div class="form-group">
-        <label><i class="fas fa-tools"></i> Their skill used</label>
+        <label><i class="fas fa-tools"></i> Skills used</label>
         <textarea id="skills" rows="2" placeholder="Boat building, weaving, navigation, hunting tools"></textarea>
       </div>
 
-      <!-- Culture / Community event -->
       <div class="form-group">
-        <label><i class="fas fa-calendar-alt"></i> Their culture or community event</label>
-        <textarea id="culture" rows="2" placeholder="Festivals, ceremonies, rituals, dances"></textarea>
+        <label><i class="fas fa-calendar-alt"></i> Culture / Community events</label>
+        <textarea id="culture" rows="2" placeholder="Festivals, ceremonies, rituals"></textarea>
       </div>
 
-      <!-- Sample words with Voice Recording Feature -->
+      <!-- Voice Recording Widget - Fully Responsive -->
       <div class="form-group">
-        <label><i class="fas fa-microphone-alt"></i> Sample words that community used { sample word(fish, fire, cook, help, boat), voice recording}</label>
-        
-        <!-- Voice Recording Widget -->
+        <label><i class="fas fa-microphone-alt"></i> Sample words (voice recording)</label>
         <div class="voice-recording-container">
           <div class="sample-words-hint">
-            <i class="fas fa-info-circle"></i> Record tribal words pronunciation (fish, fire, cook, help, boat, or any other words)
+            <i class="fas fa-info-circle"></i> Record tribal words: fish, fire, cook, help, boat, etc.
           </div>
-          
           <div class="recording-controls">
-            <button type="button" id="startRecordBtn" class="record-btn"><i class="fas fa-circle"></i> Start Recording</button>
+            <button type="button" id="startRecordBtn" class="record-btn"><i class="fas fa-circle"></i> Start</button>
             <button type="button" id="stopRecordBtn" class="record-btn stop-btn" style="display:none;"><i class="fas fa-stop"></i> Stop</button>
             <div id="recordingStatus" class="recording-status" style="display:none;">
-              <div class="wave-animation">
-                <span></span><span></span><span></span><span></span>
-              </div>
-              <span>Recording in progress...</span>
+              <div class="wave-animation"><span></span><span></span><span></span><span></span></div>
+              <span>Recording...</span>
             </div>
           </div>
-          
           <div id="recordingsList" class="recordings-list">
-            <div style="font-size: 0.75rem; color: #6b8a7a; text-align: center; padding: 8px;">
-              <i class="fas fa-microphone"></i> Click "Start Recording" to capture tribal word pronunciations
+            <div style="font-size: 0.75rem; color: #6b8a7a; text-align: center; padding: 10px;">
+              <i class="fas fa-microphone"></i> Tap Start to record pronunciation
             </div>
           </div>
-          
           <input type="hidden" id="voiceRecordingsData" value="">
         </div>
       </div>
 
-      <!-- Fishing technique & problems -->
       <div class="form-group">
-        <label><i class="fas fa-fish"></i> Fishing technique and problems</label>
+        <label><i class="fas fa-fish"></i> Fishing technique & problems</label>
         <textarea id="fishingTech" rows="2" placeholder="Spears, nets, overfishing, restricted zones"></textarea>
       </div>
 
-      <!-- Cultivation technique & problems -->
       <div class="form-group">
-        <label><i class="fas fa-seedling"></i> Cultivation technique and problems</label>
-        <textarea id="cultivationTech" rows="2" placeholder="Shifting cultivation, crop issues, climate resilience"></textarea>
+        <label><i class="fas fa-seedling"></i> Cultivation technique & problems</label>
+        <textarea id="cultivationTech" rows="2" placeholder="Shifting cultivation, crop issues"></textarea>
       </div>
 
-      <button type="button" id="submitSurveyBtn"><i class="fas fa-paper-plane"></i> Submit Survey & Get Acknowledgement</button>
+      <button type="button" id="submitSurveyBtn"><i class="fas fa-paper-plane"></i> Submit Survey & Get Certificate</button>
     </form>
   </div>
   <footer>
-    <i class="fas fa-leaf"></i> Supporting PVTG documentation — Data for academic research & Govt. of India tribal welfare initiatives
+    <i class="fas fa-leaf"></i> Supporting PVTG documentation — Data for academic research & Govt. of India initiatives
   </footer>
 </div>
 
@@ -648,213 +689,121 @@
   <div class="certificate-card">
     <i class="fas fa-scroll"></i>
     <h3 style="margin: 0.5rem 0;">Acknowledgement Certificate</h3>
-    <p id="ackUserName" style="font-weight: 700; font-size: 1rem;">To Mr./Ms. [Name of Participant]</p>
+    <p id="ackUserName" style="font-weight: 700;">To Mr./Ms. Participant</p>
     <div class="message-quote">
       Your willingness to spare your valuable time and insights by completing this survey directly supports a noble cause dedicated to improving the lives of others.<br><br>
       Your input is a vital piece of the puzzle, and I thank you for your generosity and spirit of voluntary service.<br><br>
       <strong>“The best way to find yourself is to lose yourself in the service of others.”</strong>
     </div>
-    <p style="margin-top: 0.5rem;">— <strong>From Rajib, PhD Scholar</strong></p>
+    <p>— <strong>Rajib, PhD Scholar</strong></p>
     <div class="btn-group">
-      <button class="btn-primary-cert" id="printCertBtn"><i class="fas fa-print"></i> Print Certificate</button>
+      <button class="btn-primary-cert" id="printCertBtn"><i class="fas fa-print"></i> Print</button>
       <button class="btn-secondary" id="closeModalBtn"><i class="fas fa-times"></i> Close</button>
     </div>
-    <p style="font-size: 0.7rem; margin-top: 1rem;"><i class="fas fa-envelope"></i> A copy will be sent to your e-mail (if provided). Thank you for your contribution.</p>
+    <p style="font-size: 0.7rem; margin-top: 1rem;"><i class="fas fa-save"></i> Data saved locally. Thank you for your contribution.</p>
   </div>
 </div>
 
 <script>
-  // Voice Recording Functionality (No PHP - Pure Frontend)
+  // VOICE RECORDING (Mobile friendly)
   let mediaRecorder = null;
   let audioChunks = [];
-  let recordings = []; // Store { blob, url, wordLabel, timestamp }
+  let recordings = [];
   let currentStream = null;
 
-  // DOM elements
   const startBtn = document.getElementById('startRecordBtn');
   const stopBtn = document.getElementById('stopRecordBtn');
   const recordingStatusDiv = document.getElementById('recordingStatus');
   const recordingsListDiv = document.getElementById('recordingsList');
   const voiceRecordingsDataInput = document.getElementById('voiceRecordingsData');
 
-  // Helper: update hidden field with recordings metadata
   function updateRecordingsMetadata() {
     const metadata = recordings.map((rec, idx) => ({
       id: idx,
-      wordLabel: rec.wordLabel || `Recording ${idx + 1}`,
+      wordLabel: rec.wordLabel || `Recording ${idx+1}`,
       timestamp: rec.timestamp,
-      duration: rec.duration || 0,
-      blobSize: rec.blob.size,
-      mimeType: rec.blob.type
+      blobSize: rec.blob.size
     }));
     voiceRecordingsDataInput.value = JSON.stringify(metadata);
   }
 
-  // Render recordings list
   function renderRecordings() {
     if (recordings.length === 0) {
-      recordingsListDiv.innerHTML = `<div style="font-size: 0.75rem; color: #6b8a7a; text-align: center; padding: 8px;">
-        <i class="fas fa-microphone"></i> Click "Start Recording" to capture tribal word pronunciations
-      </div>`;
+      recordingsListDiv.innerHTML = `<div style="font-size:0.75rem; color:#6b8a7a; text-align:center; padding:10px;"><i class="fas fa-microphone"></i> Tap Start to record pronunciation</div>`;
       return;
     }
-    
     recordingsListDiv.innerHTML = recordings.map((rec, idx) => `
       <div class="recording-item" data-idx="${idx}">
-        <span class="word-label"><i class="fas fa-tag"></i> <input type="text" placeholder="Word (e.g., fish, fire)" value="${escapeHtml(rec.wordLabel || '')}" style="border:1px solid #d6e6df; border-radius:20px; padding:4px 10px; width:100px;" class="word-input-${idx}"></span>
-        <audio controls src="${rec.url}"></audio>
-        <button type="button" class="delete-recording" data-idx="${idx}"><i class="fas fa-trash-alt"></i></button>
+        <span class="word-label"><i class="fas fa-tag"></i> <input type="text" placeholder="Word (fish, fire...)" value="${escapeHtml(rec.wordLabel || '')}" class="word-input-${idx}" style="border:1px solid #d6e6df; border-radius:20px; padding:8px; width:100%;"></span>
+        <audio controls src="${rec.url}" preload="metadata"></audio>
+        <button type="button" class="delete-recording" data-idx="${idx}"><i class="fas fa-trash-alt"></i> Delete</button>
       </div>
     `).join('');
     
-    // Add event listeners for word inputs and delete buttons
     recordings.forEach((rec, idx) => {
       const wordInput = document.querySelector(`.word-input-${idx}`);
-      if (wordInput) {
-        wordInput.addEventListener('change', (e) => {
-          recordings[idx].wordLabel = e.target.value;
-          updateRecordingsMetadata();
-        });
-      }
-      const deleteBtn = document.querySelector(`.delete-recording[data-idx="${idx}"]`);
-      if (deleteBtn) {
-        deleteBtn.addEventListener('click', () => {
-          // Clean up URL
-          URL.revokeObjectURL(recordings[idx].url);
-          recordings.splice(idx, 1);
-          renderRecordings();
-          updateRecordingsMetadata();
-        });
-      }
+      if (wordInput) wordInput.addEventListener('change', (e) => { recordings[idx].wordLabel = e.target.value; updateRecordingsMetadata(); });
+      const delBtn = document.querySelector(`.delete-recording[data-idx="${idx}"]`);
+      if (delBtn) delBtn.addEventListener('click', () => { URL.revokeObjectURL(recordings[idx].url); recordings.splice(idx,1); renderRecordings(); updateRecordingsMetadata(); });
     });
   }
 
-  function escapeHtml(str) {
-    if (!str) return '';
-    return str.replace(/[&<>]/g, function(m) {
-      if (m === '&') return '&amp;';
-      if (m === '<') return '&lt;';
-      if (m === '>') return '&gt;';
-      return m;
-    });
-  }
+  function escapeHtml(str) { if(!str) return ''; return str.replace(/[&<>]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;'})[m]); }
 
-  // Start recording
   async function startRecording() {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       currentStream = stream;
       mediaRecorder = new MediaRecorder(stream);
       audioChunks = [];
-      
-      mediaRecorder.ondataavailable = (event) => {
-        if (event.data.size > 0) {
-          audioChunks.push(event.data);
-        }
-      };
-      
+      mediaRecorder.ondataavailable = e => { if(e.data.size > 0) audioChunks.push(e.data); };
       mediaRecorder.onstop = () => {
         const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
         const audioUrl = URL.createObjectURL(audioBlob);
-        const timestamp = new Date().toLocaleString();
-        recordings.push({
-          blob: audioBlob,
-          url: audioUrl,
-          wordLabel: `Recording ${recordings.length + 1}`,
-          timestamp: timestamp,
-          duration: 0
-        });
+        recordings.push({ blob: audioBlob, url: audioUrl, wordLabel: `Recording ${recordings.length+1}`, timestamp: new Date().toLocaleString() });
         renderRecordings();
         updateRecordingsMetadata();
-        
-        // Stop all tracks
-        if (currentStream) {
-          currentStream.getTracks().forEach(track => track.stop());
-          currentStream = null;
-        }
+        if(currentStream) currentStream.getTracks().forEach(t => t.stop());
+        currentStream = null;
         recordingStatusDiv.style.display = 'none';
         startBtn.style.display = 'inline-flex';
         stopBtn.style.display = 'none';
       };
-      
       mediaRecorder.start();
       startBtn.style.display = 'none';
       stopBtn.style.display = 'inline-flex';
       recordingStatusDiv.style.display = 'flex';
-    } catch (err) {
-      console.error('Microphone access error:', err);
-      alert('Unable to access microphone. Please ensure you have granted microphone permissions.');
-      startBtn.style.display = 'inline-flex';
-      stopBtn.style.display = 'none';
-      recordingStatusDiv.style.display = 'none';
-    }
+    } catch(err) { alert('Microphone access needed to record.'); startBtn.style.display='inline-flex'; stopBtn.style.display='none'; }
   }
-  
-  function stopRecording() {
-    if (mediaRecorder && mediaRecorder.state === 'recording') {
-      mediaRecorder.stop();
-    }
-  }
-  
+  function stopRecording() { if(mediaRecorder && mediaRecorder.state === 'recording') mediaRecorder.stop(); }
   startBtn.addEventListener('click', startRecording);
   stopBtn.addEventListener('click', stopRecording);
-  
-  // Helper: get selected tribal knowledge checkboxes
-  function getSelectedTribes() {
-    let checkboxes = document.querySelectorAll('#tribalKnowledgeGroup input[type="checkbox"]:checked');
-    return Array.from(checkboxes).map(cb => cb.value);
-  }
 
-  // Validation
+  function getSelectedTribes() { return Array.from(document.querySelectorAll('#tribalKnowledgeGroup input:checked')).map(cb => cb.value); }
+
   function validateForm() {
     let valid = true;
     const name = document.getElementById('fullname').value.trim();
     const nameErr = document.getElementById('nameError');
-    if (name === "") {
-      nameErr.style.display = 'block';
-      document.getElementById('fullname').style.borderColor = '#c73e2d';
-      valid = false;
-    } else {
-      nameErr.style.display = 'none';
-      document.getElementById('fullname').style.borderColor = '#d6e6df';
-    }
+    if (!name) { nameErr.style.display = 'block'; document.getElementById('fullname').style.borderColor = '#c73e2d'; valid = false; }
+    else { nameErr.style.display = 'none'; document.getElementById('fullname').style.borderColor = '#d6e6df'; }
     const email = document.getElementById('email').value.trim();
     const emailErr = document.getElementById('emailError');
-    if (email !== "" && !/^\S+@\S+\.\S+$/.test(email)) {
-      emailErr.style.display = 'block';
-      document.getElementById('email').style.borderColor = '#c73e2d';
-      valid = false;
-    } else {
-      emailErr.style.display = 'none';
-      document.getElementById('email').style.borderColor = '#d6e6df';
-    }
+    if (email && !/^\S+@\S+\.\S+$/.test(email)) { emailErr.style.display = 'block'; document.getElementById('email').style.borderColor = '#c73e2d'; valid = false; }
+    else { emailErr.style.display = 'none'; document.getElementById('email').style.borderColor = '#d6e6df'; }
     const mobile = document.getElementById('mobile').value.trim();
-    if (mobile !== "" && !/^[0-9+\-\s]{8,15}$/.test(mobile)) {
-      alert("Please enter a valid mobile number (digits, +, -)");
-      document.getElementById('mobile').style.borderColor = '#c73e2d';
-      valid = false;
-    } else {
-      document.getElementById('mobile').style.borderColor = '#d6e6df';
-    }
+    if (mobile && !/^[0-9+\-\s]{8,15}$/.test(mobile)) { alert("Invalid mobile number"); document.getElementById('mobile').style.borderColor = '#c73e2d'; valid = false; }
+    else { document.getElementById('mobile').style.borderColor = '#d6e6df'; }
     return valid;
   }
 
-  // Collect full survey data as JSON including voice recordings as base64
   async function collectSurveyData() {
     const tribalBelongElem = document.querySelector('input[name="tribalBelong"]:checked');
-    
-    // Convert voice recordings to base64 for storage/export
     const voiceRecordingsBase64 = [];
     for (const rec of recordings) {
-      const base64 = await blobToBase64(rec.blob);
-      voiceRecordingsBase64.push({
-        wordLabel: rec.wordLabel,
-        timestamp: rec.timestamp,
-        audioBase64: base64,
-        mimeType: rec.blob.type
-      });
+      const base64 = await new Promise(resolve => { const reader = new FileReader(); reader.onloadend = () => resolve(reader.result); reader.readAsDataURL(rec.blob); });
+      voiceRecordingsBase64.push({ wordLabel: rec.wordLabel, timestamp: rec.timestamp, audioBase64: base64, mimeType: rec.blob.type });
     }
-    
     return {
       fullname: document.getElementById('fullname').value.trim(),
       locality: document.getElementById('locality').value.trim(),
@@ -876,127 +825,59 @@
       submittedAt: new Date().toISOString()
     };
   }
-  
-  function blobToBase64(blob) {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onloadend = () => resolve(reader.result);
-      reader.onerror = reject;
-      reader.readAsDataURL(blob);
-    });
-  }
 
-  // Save data locally (browser storage) - No PHP backend
   function saveToLocalStorage(formData) {
     try {
-      // Get existing submissions or initialize empty array
-      let existingSubmissions = localStorage.getItem('pvtg_tribal_surveys');
-      let submissions = existingSubmissions ? JSON.parse(existingSubmissions) : [];
+      let existing = localStorage.getItem('pvtg_tribal_surveys');
+      let submissions = existing ? JSON.parse(existing) : [];
       submissions.push(formData);
       localStorage.setItem('pvtg_tribal_surveys', JSON.stringify(submissions));
       return true;
-    } catch (error) {
-      console.error('LocalStorage save error:', error);
-      return false;
-    }
+    } catch(e) { console.error(e); return false; }
   }
 
-  function showAcknowledgement(userName, userEmail) {
-    const modal = document.getElementById('ackModal');
-    const ackSpan = document.getElementById('ackUserName');
-    const displayName = userName.trim() !== "" ? `Mr./Ms. ${userName}` : "Respected Participant";
-    ackSpan.innerHTML = `To ${displayName}`;
-    modal.style.display = 'flex';
-    if (userEmail && userEmail.includes('@')) {
-      console.log(`📧 Email acknowledgement would be sent to: ${userEmail} (demo - email functionality can be added)`);
-    }
+  function showAcknowledgement(userName) {
+    document.getElementById('ackUserName').innerHTML = `To ${userName.trim() ? `Mr./Ms. ${userName}` : "Respected Participant"}`;
+    document.getElementById('ackModal').style.display = 'flex';
   }
 
-  function closeModal() {
-    document.getElementById('ackModal').style.display = 'none';
-  }
-
+  function closeModal() { document.getElementById('ackModal').style.display = 'none'; }
   function printCertificate() {
-    const certContent = document.querySelector('.certificate-card').cloneNode(true);
+    const content = document.querySelector('.certificate-card').cloneNode(true);
     const win = window.open('', '_blank');
-    if (!win) {
-      alert("Please allow pop-ups to print certificate");
-      return;
-    }
-    win.document.write(`
-      <html><head><title>Survey Acknowledgement - PVTG Tribal Data</title>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-      <style>
-        body { font-family: 'Inter', sans-serif; padding: 2rem; max-width: 600px; margin: auto; background: white; }
-        .message-quote { background: #f5fcf8; padding: 1rem; border-radius: 1rem; border-left: 4px solid #2c8f6b; }
-        .certificate-card { text-align: center; }
-        .btn-group { display: none; }
-      </style>
-      </head><body>${certContent.innerHTML}</body></html>
-    `);
+    if(!win) { alert("Allow pop-ups to print"); return; }
+    win.document.write(`<html><head><title>Acknowledgement</title><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"><style>body{font-family:Inter;padding:1.5rem;} .btn-group{display:none;}</style></head><body>${content.innerHTML}</body></html>`);
     win.document.close();
     win.print();
   }
 
   async function onSubmit() {
-    if (!validateForm()) {
-      const firstErr = document.querySelector('.error-msg[style*="display: block"]');
-      if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      return;
-    }
+    if (!validateForm()) return;
     const btn = document.getElementById('submitSurveyBtn');
-    const originalText = btn.innerHTML;
-    btn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Saving & Generating Certificate...';
+    btn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Saving...';
     btn.disabled = true;
-
     const surveyData = await collectSurveyData();
-    // Save to localStorage instead of PHP backend
-    const success = saveToLocalStorage(surveyData);
-    
-    if (success) {
-      // Clear recordings after successful save
-      recordings.forEach(rec => URL.revokeObjectURL(rec.url));
+    const saved = saveToLocalStorage(surveyData);
+    if (saved) {
+      recordings.forEach(r => URL.revokeObjectURL(r.url));
       recordings = [];
       renderRecordings();
       updateRecordingsMetadata();
-      // Optionally reset form but keep name for demo, we'll reset checkboxes and radios to default
       document.getElementById('tribalSurveyForm').reset();
-      // Reset radio to default "No"
-      const noRadio = document.querySelector('input[name="tribalBelong"][value="No"]');
-      if (noRadio) noRadio.checked = true;
-      // Clear checkbox group
-      document.querySelectorAll('#tribalKnowledgeGroup input[type="checkbox"]').forEach(cb => cb.checked = false);
-      
-      showAcknowledgement(surveyData.fullname, surveyData.email);
-    } else {
-      alert("Error saving data locally. Please check browser storage settings.");
-    }
-    
-    btn.innerHTML = originalText;
+      document.querySelector('input[name="tribalBelong"][value="No"]').checked = true;
+      document.querySelectorAll('#tribalKnowledgeGroup input').forEach(cb => cb.checked = false);
+      showAcknowledgement(surveyData.fullname);
+    } else alert("Save failed. Storage error.");
+    btn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Survey & Get Certificate';
     btn.disabled = false;
   }
 
-  // Event listeners
   document.getElementById('submitSurveyBtn').addEventListener('click', onSubmit);
   document.getElementById('closeModalBtn').addEventListener('click', closeModal);
-  document.getElementById('printCertBtn').addEventListener('click', () => {
-    printCertificate();
-    closeModal();
-  });
-  window.addEventListener('click', (e) => {
-    if (e.target === document.getElementById('ackModal')) closeModal();
-  });
-
-  const nameInput = document.getElementById('fullname');
-  nameInput.addEventListener('input', () => {
-    document.getElementById('nameError').style.display = 'none';
-    nameInput.style.borderColor = '#d6e6df';
-  });
-  const emailInput = document.getElementById('email');
-  emailInput.addEventListener('input', () => {
-    document.getElementById('emailError').style.display = 'none';
-    emailInput.style.borderColor = '#d6e6df';
-  });
+  document.getElementById('printCertBtn').addEventListener('click', () => { printCertificate(); closeModal(); });
+  window.addEventListener('click', e => { if(e.target === document.getElementById('ackModal')) closeModal(); });
+  document.getElementById('fullname').addEventListener('input', () => { document.getElementById('nameError').style.display='none'; });
+  document.getElementById('email').addEventListener('input', () => { document.getElementById('emailError').style.display='none'; });
 </script>
 </body>
 </html>
